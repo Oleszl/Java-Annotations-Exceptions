@@ -1,14 +1,14 @@
-package task1;
+package task1.approach1;
 
 import java.lang.reflect.Field;
 
-public class ImmutablePerson {
+public class Person {
     @ReadOnly
     private String firstName;
     @ReadOnly
     private int age;
 
-    public ImmutablePerson(String firstName, int age) {
+    public Person(String firstName, int age) {
         this.firstName = firstName;
         this.age = age;
     }
@@ -35,7 +35,7 @@ public class ImmutablePerson {
 
     private void validateReadOnlyField(String fieldName) {
         try {
-            Field firstNameField = ImmutablePerson.class.getDeclaredField(fieldName);
+            Field firstNameField = Person.class.getDeclaredField(fieldName);
             if (firstNameField.isAnnotationPresent(ReadOnly.class))
                 System.out.printf("Field [%s] is read-only!\n", fieldName);
 
